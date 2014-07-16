@@ -28,6 +28,6 @@
 
   Bullet.RADIUS = 3;
   Bullet.COLOR = "black";
-  Bullet.SPEED = 3;
+  Bullet.SPEED = 6;
 
 }(this));
