@@ -8,7 +8,7 @@
 
     Asteroids.MovingObject.call(this, pos, vel, Ship.RADIUS, Ship.COLOR);
 
-    this.angle = -1*Math.PI/2;
+    this.angle = -(1/2) * Math.PI;
   };
 
   Ship.inherits(Asteroids.MovingObject);
@@ -17,8 +17,7 @@
     ctx.fillStyle = this.color;
     ctx.beginPath();
 
-    ctx.arc(
-      this.pos.x,
+    ctx.arc(this.pos.x,
       this.pos.y,
       this.radius,
       this.angle + Math.PI/2,

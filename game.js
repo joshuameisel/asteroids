@@ -2,16 +2,15 @@
   var Asteroids = root.Asteroids = (root.Asteroids || {});
 
   var Game = Asteroids.Game = function(ctx) {
-    this.asteroids = [];
     this.ship = new Asteroids.Ship();
     this.bullets = [];
 
-    this.ctx = ctx;
-    this.xDim = Game.DIM_X;
-    this.yDim = Game.DIM_Y;
-    for (var i = 0; i < 0 ; i++) {
+    this.asteroids = [];
+    for (var i = 0; i < 20 ; i++) {
       this.asteroids.push(new Asteroids.Asteroid());
     };
+
+    this.ctx = ctx;
   };
 
   Game.prototype.movingObjects = function () {
@@ -24,7 +23,7 @@
 
   Game.prototype.draw = function() {
     var ctx = this.ctx;
-    ctx.clearRect(0, 0, this.xDim, this.yDim);
+    ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
 
     this.movingObjects().forEach(function(movingObj){
       movingObj.draw(ctx);
@@ -98,7 +97,7 @@
   Game.prototype.start = function () {
     var game = this;
     key("space", function() {
-      if (game.bullets.length < 8) {
+      if (game.bullets.length < 4) {
         game.bullets.push(new Asteroids.Bullet(game.ship));
       }
     });

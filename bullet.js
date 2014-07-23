@@ -22,8 +22,8 @@
   };
 
   Bullet.prototype.offScreen = function () {
-    return (this.pos.x < 0 || this.pos.x > Asteroids.Game.DIM_X) ||
-      (this.pos.y < 0 || this.pos.y > Asteroids.Game.DIM_Y)
+    return this.pos.x < 0 || this.pos.x > Asteroids.Game.DIM_X ||
+      this.pos.y < 0 || this.pos.y > Asteroids.Game.DIM_Y
   };
 
   Bullet.RADIUS = 3;

@@ -1,7 +1,7 @@
 (function(root) {
   var Asteroids = root.Asteroids = (root.Asteroids || {});
 
-  var MovingObject = Asteroids.MovingObject = function(pos, vel,radius,color) {
+  var MovingObject = Asteroids.MovingObject = function(pos, vel, radius, color) {
     this.pos = pos;
     this.vel = vel;
     this.radius = radius;
@@ -9,27 +9,18 @@
   };
 
   MovingObject.prototype.move = function() {
-    DIM_X = Asteroids.Game.DIM_X
-    DIM_Y = Asteroids.Game.DIM_Y
+    var dimX = Asteroids.Game.DIM_X;
+    var dimY = Asteroids.Game.DIM_Y;
     this.pos = this.pos.sum(this.vel);
-    this.pos.x = ((this.pos.x % DIM_X) + DIM_X) % DIM_X;
-    this.pos.y = ((this.pos.y % DIM_Y) + DIM_Y) % DIM_Y;
+    this.pos.x = ((this.pos.x % dimX) + dimX) % dimX;
+    this.pos.y = ((this.pos.y % dimY) + dimY) % dimY;
   };
 
 
   MovingObject.prototype.draw = function (ctx) {
     ctx.fillStyle = this.color;
     ctx.beginPath();
-
-    ctx.arc(
-      this.pos.x,
-      this.pos.y,
-      this.radius,
-      0,
-      2 * Math.PI,
-      true
-    );
-
+    ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, true);
     ctx.fill();
   };
 
@@ -37,12 +28,10 @@
     return (this.pos.distanceFrom(movingObject.pos) <=
       this.radius + movingObject.radius);
   };
-
-
 })(this);
 
 Function.prototype.inherits = function (Super) {
   function Surrogate(){};
-  Surrogate.prototype = Super.prototype
+  Surrogate.prototype = Super.prototype;
   this.prototype = new Surrogate();
 };

@@ -7,17 +7,17 @@
   };
 
   Vector.prototype.sum = function (vector2) {
-    return new Vector(this.x+vector2.x,this.y+vector2.y);
+    return new Vector(this.x + vector2.x, this.y + vector2.y);
   };
 
   Vector.prototype.distanceFrom = function (vector2) {
     return Math.sqrt(
-      Math.pow((this.x - vector2.x), 2) + Math.pow(this.y-vector2.y, 2)
+      Math.pow((this.x - vector2.x), 2) + Math.pow(this.y - vector2.y, 2)
     );
   };
 
   Vector.prototype.magnitude = function () {
-    return this.distanceFrom(new Vector(0,0));
+    return this.distanceFrom(new Vector(0, 0));
   };
 
   Vector.prototype.angle = function () {
