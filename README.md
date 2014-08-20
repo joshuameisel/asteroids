@@ -1,1 +1,1 @@
-To play, clone repository to your desktop and open "index.html".
+Play it [here](http://www.joshuameisel.me/asteroids/)!
